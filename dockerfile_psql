@@ -1,0 +1,14 @@
+# Use the official PostgreSQL image as the base image
+FROM --platform=linux/amd64 postgres:latest
+
+# Set the environment variables for the PostgreSQL database
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=Decklaration
+ENV POSTGRES_DB=Luminary-database
+
+# Copy the initialization script to the Docker image
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Expose the default PostgreSQL port
+EXPOSE 5432
+
